@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: streamlit-menu
+Version: 1.0.2
+Summary: Customizable menu component for the streamlit developers
+Home-page: 
+Author: Subhash Jadhav
+Author-email: subhash.jadhav@bluepineapple.io
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+License-File: LICENSE.txt
