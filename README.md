@@ -168,16 +168,16 @@ Result:
 14.	Last but not least, add the code below to get the styled menu of your choice:
     ```bash
     menu.st_menu(
-        header = data.header,
-        menu_items = data.menu_items,
-        wrapper_style = style.wrapper_style,
-        header_style = style.header_style,
-        single_menu_style = style.single_menu_style,
-        submenu_style = style.submenu_style,
-        divider_between_header_and_body =   style.divider_between_header_and_body,
-        is_collapsible=data.is_collapsible,
+        header = header,
+        menu_items = menu_items,
+        wrapper_style = wrapper_style,
+        header_style = header_style,
+        single_menu_style = single_menu_style,
+        submenu_style = submenu_style,
+        divider_between_header_and_body = divider_between_header_and_body,
+        is_collapsible = is_collapsible,
         on_menu_select = on_menu_select,
-        args=("sidemenu", )
+        args = ("sidemenu", )
     )
     ```
 
