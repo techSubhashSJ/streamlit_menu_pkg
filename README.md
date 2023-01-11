@@ -19,8 +19,11 @@ Streamlit, React, and Base Web
 1.	Install the menu package using “pip install streamlit-menu”.
 2.	Add "import streamlit_menu as menu" at the top of your __init__.py file
 3.	Make a dictionary called "header" that contains a menu title and a logo (base64 image). For example: 
-header = {“logo”: base64-image-string, “title”: “Gmail Clone”}
+	```bash
+	header = {“logo”: base64-image-string, “title”: “Gmail Clone”}
+	```
 4.	Create a list of dictionaries called "menu items" that should contain menu and submenu items in the appropriate format (As specified below). For example: 
+    ```bash
     menu_items = [ 
         { 
             "id": 1, 
@@ -28,7 +31,7 @@ header = {“logo”: base64-image-string, “title”: “Gmail Clone”}
             "icon": "fa-solid fa-users", 
             "children": None, 
         }, 
-     { 
+     	{ 
             "id": 2, 
             "title": "Starred", 
             "icon": "fa-solid fa-star", 
@@ -77,30 +80,39 @@ header = {“logo”: base64-image-string, “title”: “Gmail Clone”}
             "icon": "fa-solid fa-right-from-bracket", 
             "children": None, 
         }, 
-    ] 
-		(Note: An icon should be a font awesome icon)
-5.	Define a callback function. For example:
-    def on_menu_select(widgetkey):
-        #Prints the selected menu item on the console
-        print(st.session_state["sidemenu"]["title"])
+    ]
+    ```
+	(Note: An icon should be a font awesome icon)
 
+5.	Define a callback function. For example:
+	```bash
+	 def on_menu_select(widgetkey):
+	   #Prints the selected menu item on the console
+	   print(st.session_state["sidemenu"]["title"])
+	```
     (Don’t forget to  write “widgetkey” as a parameter)
 6.	To obtain an expandible menu with a default theme, enter the following lines of code.
-    menu.st_menu(
-        header = header,
-        menu_items = menu_items,
-        on_menu_select = on_menu_select,
-        args=("sidemenu", )
-    )
+	```bash
+	 menu.st_menu(
+	   header = header,
+	   menu_items = menu_items,
+	   on_menu_select = on_menu_select,
+	   args=("sidemenu", )
+	  )
+    ```
     where args is a tuple holding the parameters for the callback function that was previously specified.
 
 Result:
+
 <img width="960" alt="default expandible menu" src="https://user-images.githubusercontent.com/111497133/211731812-c60a3543-e5f2-40a0-a54c-ee810562274a.PNG">
 
 7.	Follow the first five steps as described above, and then the ones listed below, to create a custom-themed menu.
 8.	Make a dictionary called “wrapper_style” and fill it with the background color for the menu (As specified below).  For example:
+    ```bash
     wrapper_style = {"background_color": "#32373d"}
+    ```
 9.	Make a dictionary called “header_style” and fill it with the following specified styles for the menu header.  For example:
+    ```bash
     header_style = {
         "items_direction": "column",
         "horizontal_alignment": "center",
@@ -114,7 +126,9 @@ Result:
             "height": "3rem"
         }
     }
+    ```
 10.	Make a dictionary called “single_menu_style” and fill it with the following specified styles for the menu item which don’t have children.  For example:
+    ```bash
     Single_menu_style = {
         "color": "rgba(255,255,255,.6)",
         "font_family": "'Courier New', monospace",
@@ -127,7 +141,9 @@ Result:
             "color": "#fff",
         }
     }
+    ```
 11.	Make a dictionary called “submenu_style” and fill it with the following specified styles for the submenu.  For example:
+    ```bash
     submenu_style = {
         "color": "rgba(255,255,255,.6)",
         "font_family": "'Courier New', monospace",
@@ -140,11 +156,17 @@ Result:
             "color": "#fff",
         }
     }
+    ```
 12.	Create a variable called "divider_between_header_and_body". Initialize it with the value false if you don't want a line to appear between the menu body and         header. If you do, set its initial value to true. For example:
+    ```bash
     divider_between_header_and_body = True
+    ```
 13.	 If you want the submenu items to be expanded and collapsed, create the variable "is_collapsible" and initialize it with true. Set it to false if you don’t. For      example:
+     ```bash
      is_collapsible = True
+     ```
 14.	Last but not least, add the code below to get the styled menu of your choice:
+    ```bash
     menu.st_menu(
         header = data.header,
         menu_items = data.menu_items,
@@ -157,8 +179,10 @@ Result:
         on_menu_select = on_menu_select,
         args=("sidemenu", )
     )
+    ```
 
 Result:
+
 <img width="959" alt="Custome theme menu" src="https://user-images.githubusercontent.com/111497133/211732285-b8a7ef7b-171d-4dbf-a128-7339852d91f3.PNG">
 
 ## Conclusion
