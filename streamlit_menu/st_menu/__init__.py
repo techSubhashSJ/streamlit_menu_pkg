@@ -1,4 +1,4 @@
-from streamlit_menu.st_menu.register import register_callback, init, get_component_rerender_count, set_component_rerender_count
+from streamlit_menu.st_menu.register import Register
 
 import os
 import streamlit.components.v1 as components
@@ -47,36 +47,38 @@ else:
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
 
-init()
+register = Register()
+register.init()
+
 
 def getMenu(header={},
-            menu_items = [],
+            menu_items=[],
             divider_between_header_and_body=True,
-            header_style = {},
-            wrapper_style = {},
-            submenu_style = {},
-            single_menu_style = {},
+            header_style={},
+            wrapper_style={},
+            submenu_style={},
+            single_menu_style={},
             is_collapsible=True,
             key=None,
             on_select=None,
             args: tuple = ()):
 
-    register_callback(key, on_select, *args)
-    render_count = get_component_rerender_count(key)
-    
+    register.register_callback(key, on_select, *args)
+    render_count = register.get_component_rerender_count(key)
+
     component_value = st_component(header=header,
                                    menu_items=menu_items,
                                    divider_between_header_and_body=divider_between_header_and_body,
                                    header_style=header_style,
-                                   wrapper_style = wrapper_style,
-                                   submenu_style = submenu_style,
-                                   single_menu_style = single_menu_style,
+                                   wrapper_style=wrapper_style,
+                                   submenu_style=submenu_style,
+                                   single_menu_style=single_menu_style,
                                    is_collapsible=is_collapsible,
                                    key=key,
                                    render_count=render_count,
                                    default=0)
-    
-    set_component_rerender_count(key)
+
+    register.set_component_rerender_count(key)
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
     return component_value
